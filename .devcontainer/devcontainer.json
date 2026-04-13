@@ -1,0 +1,63 @@
+{
+    "name": "${localWorkspaceFolderBasename}",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "remoteUser": "devuser",
+    "mounts": [
+        "source=${localEnv:HOME}/.p10k.zsh,target=/home/devuser/.p10k.zsh,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.config/tmux,target=/home/devuser/.config/tmux,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.tmux/plugins,target=/home/devuser/.tmux/plugins,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.config/nvim,target=/home/devuser/.config/nvim,type=bind,consistency=cached,readonly",
+        "source=${localEnv:HOME}/.scripts,target=/home/devuser/.scripts,type=bind,consistency=cached,readonly"
+    ],
+    "containerEnv": {
+        "TERM": "xterm-256color",
+        "COLORTERM": "truecolor",
+        "LANG": "en_US.UTF-8",
+        "LC_ALL": "en_US.UTF-8",
+        "NO_BROWSER": "true"
+    },
+    "postCreateCommand": "sudo pacman -Syu --noconfirm && tldr --update",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                "qwtel.sqlite-viewer",
+                "mads-hartmann.bash-ide-vscode",
+                "vadimcn.vscode-lldb",
+                "GrapeCity.gc-excelviewer",
+                "tamasfe.even-better-toml",
+                "google.geminicodeassist",
+                "docker.docker",
+                "janisdd.vscode-edit-csv",
+                "ms-azuretools.vscode-containers",
+                "ms-toolsai.datawrangler",
+                "ms-azuretools.vscode-docker",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "James-Yu.latex-workshop",
+                "yzhang.markdown-all-in-one",
+                "DavidAnson.vscode-markdownlint",
+                "MathWorks.language-matlab",
+                "christian-kohler.path-intellisense",
+                "mathematic.vscode-pdf",
+                "ms-python.vscode-pylance",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-python-envs",
+                "mechatroner.rainbow-csv",
+                "charliermarsh.ruff",
+                "timonwong.shellcheck",
+                "the0807.uv-toolkit",
+                "tonybaloney.vscode-pets"
+            ]
+        }
+    }
+}
