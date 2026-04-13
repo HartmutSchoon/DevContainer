@@ -1,76 +1,67 @@
-# Arch Linux DevContainer
+# 🏔️ Arch Linux Development Environment
 
-A high-performance, secure, and feature-rich development environment powered by Arch Linux. This container is designed for developers who want a consistent, CLI-centric workflow with modern tooling and strict security boundaries.
+A high-performance, Arch-based development container designed for a seamless, CLI-centric workflow. This environment bridges the gap between a lightweight container and a fully-featured workstation, pre-configured with modern tooling and intelligent defaults.
 
-## 🚀 Key Features
+## ✨ Core Highlights
 
-- **Base**: Lightweight and up-to-date Arch Linux (`multilib` enabled).
-- **Shell**: Zsh with [Oh My Zsh](https://ohmyz.sh/), [Powerlevel10k](https://github.com/romkatv/powerlevel10k), and productivity plugins.
-- **Terminal Excellence**: Multi-session support via `tmux` with a pre-configured [Catppuccin](https://github.com/catppuccin/tmux) theme.
-- **Modern CLI**: Replaces legacy tools with faster alternatives (`eza`, `bat`, `ripgrep`, `fd`, `zoxide`).
-- **User**: Runs as a non-privileged `devuser` with `sudo` access for maintenance.
-- **Persisted Configs**: Automatically mounts your host's `nvim`, `tmux`, `git`, and `p10k` configurations for a seamless transition.
+*   **Bleeding Edge**: Built on Arch Linux with `multilib` support, ensuring access to the latest packages.
+*   **Intelligent Shell**: Zsh powered by Oh My Zsh, Powerlevel10k, and auto-suggestions for maximum productivity.
+*   **Native Performance**: Optimized for fast startup and minimal overhead, running as a non-root `devuser`.
+*   **VS Code Integration**: First-class support via Dev Containers with a curated list of extensions.
+*   **AI-Powered**: Includes the **Gemini CLI** for integrated AI assistance directly in your terminal.
 
-## 🧰 The Toolbox
+## 🧰 The Toolbelt
 
-This environment comes pre-loaded with a curated set of development tools:
+### 🛠️ Build & Systems
+*   **Languages**: Rust, Python (with `uv`), Node.js (with `npm`).
+*   **Build Tools**: CMake, pkgconf, base-devel.
+*   **Databases**: MariaDB client libraries.
 
-| Category | Included Tools |
-| :--- | :--- |
-| **Languages** | Rust (stable), Python 3.x, [UV](https://github.com/astral-sh/uv) (Python pkg manager) |
-| **Editors** | Neovim (v0.10+), Bash, Zsh |
-| **Navigation** | [Yazi](https://github.com/sxyazi/yazi) (Terminal file manager), `fzf`, `zoxide` |
-| **Search/Filter** | `ripgrep` (rg), `fd`, `jq` |
-| **Monitoring** | `btop` |
-| **Productivity** | `eza` (modern ls), `bat` (modern cat), `tealdeer` (tldr), `7zip`, `ffmpeg` |
+### ⌨️ Terminal Essentials
+*   **Editor**: Neovim (v0.10+) with host config mirroring.
+*   **Multiplexer**: Tmux with pre-configured session management.
+*   **File Management**: [Yazi](https://github.com/sxyazi/yazi) (modern terminal file manager) with a smart directory-sync wrapper.
+*   **Search**: `ripgrep` (rg), `fd`, `fzf`, `jq`.
 
-## 🛠️ Getting Started
+### 🚀 Productivity Boosters
+*   `eza`: Modern `ls` with icons and git integration.
+*   `bat`: Syntax-highlighting `cat`.
+*   `zoxide`: Smarter `cd` that learns your habits.
+*   `btop`: Interactive system monitor.
+*   `tealdeer`: High-speed `tldr` implementation.
+
+## 🚀 Getting Started
 
 ### 1. Prerequisites
+Ensure you have **Docker** and (optionally) **VS Code** with the **Dev Containers** extension installed.
 
-- [Docker](https://www.docker.com/) installed and running.
-- (Optional) [VS Code](https://code.visualstudio.com/) with the "Dev Containers" extension.
+### 2. Quick Launch (CLI)
+Use the automated scripts to build and run your environment:
 
-### 2. Build and Launch
+```bash
+# Build the image (names it based on your folder)
+./.devcontainer/build.sh
 
-Use the provided scripts in the project root to manage the life cycle of your environment:
+# Launch the interactive container
+./.devcontainer/run.sh
+```
 
-- **Build the Image**:
+### 3. VS Code Workflow
+Simply open the project folder in VS Code and click **"Reopen in Container"** when prompted. The environment will automatically set up all extensions and settings.
 
-  ```bash
-  ./.devcontainer/build.sh
-  ```
+## ⚙️ Customization & Host Integration
 
-  *This script dynamically names the image based on your project directory.*
+The container is designed to feel like your local machine by mounting your personal configurations as read-only volumes:
 
-> [!NOTE]
-> Building the image and connecting for the first time can take some time as it downloads necessary packages. Depending on your internet connection, **5-10 minutes** is typical for the initial setup.
+*   **Neovim**: Mirrors `~/.config/nvim`
+*   **Tmux**: Mirrors `~/.config/tmux` and plugins.
+*   **Zsh**: Supports your local `.p10k.zsh` for a consistent prompt.
+*   **Scripts**: Access your local `~/.scripts` directory directly inside the container.
 
-- **Run the Container**:
+### Useful Aliases
+*   `ls`, `ll`, `la`: Alias to `eza` with icons and detail views.
+*   `cat`: Alias to `bat`.
+*   `y`: Launches Yazi and automatically `cd`s to the last directory upon exit.
 
-  ```bash
-  ./.devcontainer/run.sh
-  ```
-
-  *This starts an interactive session, mounts your project root to `/workspaces/<project_name>`, and pulls in your host configurations.*
-
-## ⌨️ Productivity Features
-
-### Custom Aliases
-
-The environment includes pre-configured aliases in `.zshrc`:
-
-- `ls`, `ll`, `la` → Powered by `eza` with icons.
-- `cat` → Powered by `bat` for syntax highlighting.
-- `y` → A custom wrapper for **Yazi** that changes your shell directory on exit.
-
-### Host Integration
-
-The following files/directories are mounted from your host (read-only) to maintain your personal workflow:
-
-- `~/.config/nvim` or `~/.nvim` → `/home/devuser/.config/nvim`
-- `~/.config/tmux` → `/home/devuser/.config/tmux`
-- `~/.tmux/plugins` → `/home/devuser/.tmux/plugins`
-- `~/.p10k.zsh` → `/home/devuser/.p10k.zsh`
-- `~/.gitconfig` → `/home/devuser/.gitconfig`
-
+---
+*Built for developers who value speed, modern tooling, and the flexibility of Arch Linux.*
