@@ -56,7 +56,8 @@
                 "charliermarsh.ruff",
                 "timonwong.shellcheck",
                 "the0807.uv-toolkit",
-                "tonybaloney.vscode-pets"
+                "tonybaloney.vscode-pets",
+                "ms-vscode.cmake-tools"
             ]
         }
     }

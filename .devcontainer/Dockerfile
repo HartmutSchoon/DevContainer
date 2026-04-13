@@ -9,7 +9,7 @@ WORKDIR /workspaces/${PROJECTNAME}
 RUN pacman -Syu --noconfirm sudo zsh git curl wget neovim tmux bc bash unzip \
     yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick \
     eza bat btop tealdeer rust python uv nodejs npm openssh \
-    mariadb-libs pkgconf base-devel \
+    mariadb-libs pkgconf base-devel cmake \
     && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
     && locale-gen
 
