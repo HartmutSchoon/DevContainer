@@ -32,6 +32,7 @@
                 "GrapeCity.gc-excelviewer",
                 "tamasfe.even-better-toml",
                 "google.geminicodeassist",
+                "google.gemini-cli-vscode-ide-companion",
                 "docker.docker",
                 "janisdd.vscode-edit-csv",
                 "ms-azuretools.vscode-containers",
