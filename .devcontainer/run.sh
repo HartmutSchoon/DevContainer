@@ -6,12 +6,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 # Use the project root directory name as the image name
 IMAGE_NAME=$(basename "$PROJECT_ROOT" | tr '[:upper:]' '[:lower:]')
-CONTAINER_NAME="${IMAGE_NAME}-instance"
+CONTAINER_NAME="${IMAGE_NAME}"
 
 # Check if the image exists
-if [[ "$(docker images -q "$IMAGE_NAME" 2> /dev/null)" == "" ]]; then
-  echo "Image '$IMAGE_NAME' not found. Please run ./build.sh first."
-  exit 1
+if [[ "$(docker images -q "$IMAGE_NAME" 2>/dev/null)" == "" ]]; then
+    echo "Image '$IMAGE_NAME' not found. Please run ./build.sh first."
+    exit 1
 fi
 
 echo "Starting $IMAGE_NAME..."
@@ -47,6 +47,6 @@ elif [ -d "$HOME/.nvim" ]; then
     DOCKER_ARGS+=(-v "$HOME/.nvim:/home/devuser/.config/nvim:ro")
 fi
 
-
 # Run the container (fix permissions before launching shell)
-docker run "${DOCKER_ARGS[@]}" "$IMAGE_NAME" /bin/zsh 
+docker run "${DOCKER_ARGS[@]}" "$IMAGE_NAME" /bin/zsh
+
