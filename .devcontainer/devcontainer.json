@@ -20,6 +20,7 @@
         "NO_BROWSER": "true"
     },
     "postCreateCommand": "sudo pacman -Syu --noconfirm && tldr --update",
+    "shutdownAction": "none",
     "customizations": {
         "vscode": {
             "settings": {
