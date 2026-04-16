@@ -1,6 +1,6 @@
 {
     "name": "${localWorkspaceFolderBasename}",
-    "containerName": "${localWorkspaceFolderBasename}"
+    "containerName": "${localWorkspaceFolderBasename}",
     "build": {
         "dockerfile": "Dockerfile",
         "context": ".."
