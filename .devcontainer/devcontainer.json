@@ -34,6 +34,7 @@
                 "tamasfe.even-better-toml",
                 "google.geminicodeassist",
                 "google.gemini-cli-vscode-ide-companion",
+                "google.gemini-code-companion",
                 "docker.docker",
                 "janisdd.vscode-edit-csv",
                 "ms-azuretools.vscode-containers",
