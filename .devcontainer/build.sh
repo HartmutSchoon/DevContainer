@@ -16,6 +16,8 @@ echo "Building Docker image: $IMAGE_NAME for project: $PROJECT_NAME..."
 # Build using the project root as context and the Dockerfile in this directory
 docker build -t "$IMAGE_NAME" \
     --build-arg PROJECTNAME="$PROJECT_NAME" \
+    --build-arg USER_UID="$(id -u)" \
+    --build-arg USER_GID="$(id -g)" \
     -f "$SCRIPT_DIR/Dockerfile" "$PROJECT_ROOT"
 
 echo "Build complete."
