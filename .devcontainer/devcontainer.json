@@ -12,6 +12,10 @@
         "source=${localEnv:HOME}/.config/nvim,target=/home/devuser/.config/nvim,type=bind,consistency=cached,readonly",
         "source=${localEnv:HOME}/.scripts,target=/home/devuser/.scripts,type=bind,consistency=cached,readonly"
     ],
+    "runArgs": [
+        "--gpus",
+        "all"
+    ],
     "containerEnv": {
         "TERM": "xterm-256color",
         "COLORTERM": "truecolor",
