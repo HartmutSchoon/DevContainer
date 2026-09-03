@@ -1,4 +1,4 @@
-FROM archlinux:multilib-devel-20260329.0.507017
+FROM archlinux:multilib-devel
 
 ARG USERNAME=devuser
 ARG USER_UID=1000

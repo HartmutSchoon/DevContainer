@@ -23,7 +23,7 @@
         "LC_ALL": "en_US.UTF-8",
         "NO_BROWSER": "true"
     },
-    "postCreateCommand": "sudo pacman -Syu --noconfirm && tldr --update",
+    "postCreateCommand": "tldr --update",
     "shutdownAction": "none",
     "customizations": {
         "vscode": {
